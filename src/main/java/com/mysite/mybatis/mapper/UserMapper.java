@@ -1,10 +1,7 @@
 package com.mysite.mybatis.mapper;
 
 import com.mysite.mybatis.model.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -27,4 +24,8 @@ public interface UserMapper {
     //유저 업데이트
     @Update("update user set name=#{name}, phone=#{phone}, address=#{address} where id=#{id}")
     public int updateUser(String id, String name, String phone, String address);
+
+    //유저 삭제 (id)
+    @Delete("delete from user where id=#{id}")
+    public int deleteUser(String id);
 }

@@ -2,6 +2,7 @@ package com.mysite.mybatis.controller;
 
 import com.mysite.mybatis.mapper.UserMapper;
 import com.mysite.mybatis.model.User;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,6 +49,10 @@ public class UserController {
         userMapper.updateUser(id,name,phone,address);
     }
 
-
+    //삭제하기
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable String id) {
+        userMapper.deleteUser(id);
+    }
 
 }
