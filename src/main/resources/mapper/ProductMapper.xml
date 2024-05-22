@@ -20,4 +20,11 @@
         FROM products
     </select>
 
+    <!-- parameterType 은 입력되는 객체의 타입으로 객체안의 변수값이 자동 입력됨  -->
+    <insert id="insertProduct" parameterType="Product">
+        INSERT INTO products (prod_name, prod_price)
+        VALUES (#{prodName}, #{prodPrice})
+    </insert>
+
+
 </mapper>

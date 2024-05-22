@@ -24,22 +24,20 @@ public class ProductController {
     }
 
 
-//    @GetMapping
-//    public List<User> getUsers() {
-//        List<User> users = userMapper.getUsers();
-//        return users;
-//    }
-//
-//
-//    @PostMapping
-//    public void createUser(@RequestParam("id") String id,
-//                           @RequestParam("name") String name,
-//                           @RequestParam("phone") String phone,
-//                           @RequestParam("address") String address) {
-//
-//        userMapper.insertUser(id,name,phone,address);
-//    }
-//
+    @GetMapping
+    public List<Product> getProducts() {
+        List<Product> products = productMapper.selectAllProducts();
+        return products;
+    }
+
+
+    @PostMapping
+    public void createProduct(@RequestParam("name") String prodName,
+                              @RequestParam("price") int prodPrice) {
+
+        productMapper.insertProduct(new Product(prodName, prodPrice));
+    }
+
 //
 //    @PutMapping("/{id}")
 //    public void editUser(@PathVariable String id,
